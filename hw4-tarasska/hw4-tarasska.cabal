@@ -1,0 +1,109 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.33.0.
+--
+-- see: https://github.com/sol/hpack
+--
+-- hash: a40b13a9c0708f75964a3044b0cf815b3c55908b9ed84c1113df646396eb5f8c
+
+name:           hw4-tarasska
+version:        0.1.0.0
+description:    Please see the README on GitHub at <https://github.com/fp-ctd-itmo/hw4-tarasska#readme>
+homepage:       https://github.com/fp-ctd-itmo/hw4-tarasska#readme
+bug-reports:    https://github.com/fp-ctd-itmo/hw4-tarasska/issues
+author:         Skazhenik Taras
+maintainer:     taras.skazhenik@yandex.ru
+copyright:      2020 Skazhenik Taras
+license:        BSD3
+license-file:   LICENSE
+build-type:     Simple
+extra-source-files:
+    README.md
+    ChangeLog.md
+
+source-repository head
+  type: git
+  location: https://github.com/fp-ctd-itmo/hw4-tarasska
+
+executable covid-app
+  main-is: Main.hs
+  other-modules: Paths_hw4_tarasska
+  hs-source-dirs: app
+  ghc-options: -threaded -Werror -rtsopts -with-rtsopts=-N -Wall
+  build-depends:
+      base >=4.7 && <5
+    , hw4-tarasska
+    , ansi-terminal
+  default-language: Haskell2010
+
+library
+  exposed-modules:
+      Task1, Task2, Task3, Task45,
+      Task67, Task8.ComonadContainer, Task8.CovidCore
+  other-modules:
+      Paths_hw4_tarasska
+  hs-source-dirs:
+      src
+  ghc-options: -O2 -Werror
+  build-depends:
+      base >=4.7 && <5
+    , array
+    , comonad
+    , containers
+    , directory
+    , filepath
+    , microlens
+    , random
+    , parallel
+    , mtl
+    , monad-par-extras
+    , monad-par
+    , hashable
+    , stm
+    , transformers
+  default-language: Haskell2010
+
+test-suite hw4-tarasska-test
+  type: exitcode-stdio-1.0
+  main-is: Spec.hs
+  other-modules:
+      Paths_hw4_tarasska
+    , Task1Test, Task2Test, Task3Test, Task45Test, Task67Test
+  hs-source-dirs:
+      test
+  ghc-options: -O2 -threaded -Werror -rtsopts -with-rtsopts=-N
+  build-depends:
+      base >=4.7 && <5
+    , hw4-tarasska
+    , async
+    , bytestring
+    , criterion
+    , directory
+    , filepath
+    , microlens
+    , tasty, tasty-hedgehog, tasty-hspec
+    , random
+  default-language: Haskell2010
+
+benchmark hw4-tarasska-benchmark
+  type: exitcode-stdio-1.0
+  main-is: Main.hs
+  other-modules:
+      Paths_hw4_tarasska
+    , Task1Test, Task2Test, Task3Test, Task45Test, Task67Test
+  hs-source-dirs:
+      benchmark, test
+  ghc-options: -O2 -threaded -Werror -rtsopts -with-rtsopts=-N
+  build-depends:
+      base >=4.7 && <5
+    , hw4-tarasska
+    , async
+    , bytestring
+    , criterion
+    , directory
+    , filepath
+    , microlens
+    , tasty, tasty-hedgehog, tasty-hspec
+    , random
+  default-language: Haskell2010
+

@@ -1,0 +1,57 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.33.0.
+--
+-- see: https://github.com/sol/hpack
+--
+-- hash: 3cb2e6e4ac15379efaf399fa2900b71e876fec2edb29646e66a0667ac2c35e9d
+
+name:           hw2-tarasska
+version:        0.1.0.0
+description:    Please see the README on GitHub at <https://github.com/fp-ctd-itmo/hw2-tarasska#readme>
+homepage:       https://github.com/fp-ctd-itmo/hw2-tarasska#readme
+bug-reports:    https://github.com/fp-ctd-itmo/hw2-tarasska/issues
+author:         Skazhenik Taras
+maintainer:     taras.skazhenik@yandex.ru
+copyright:      2020 Skazhenik Taras
+license:        BSD3
+license-file:   LICENSE
+build-type:     Simple
+extra-source-files:
+    README.md
+    ChangeLog.md
+
+source-repository head
+  type: git
+  location: https://github.com/fp-ctd-itmo/hw2-tarasska
+
+library
+  exposed-modules:
+      Block1.Task1, Block1.Task2, Block1.Task3,
+      Block2.Task1, Block2.Task2,
+      Block3.Task1, Block3.Task2, Block3.Task3, Block3.Task4
+  other-modules:
+      Paths_hw2_tarasska
+  hs-source-dirs:
+      src
+  build-depends:
+      base >=4.7 && <5, containers, mtl
+  default-language: Haskell2010
+
+test-suite hw2-tarasska-test
+  type: exitcode-stdio-1.0
+  main-is: Main.hs
+  other-modules:
+      Block1.Task1Tests, Block1.Task2Tests, Block1.Task3Tests,
+      Block2.Task1Tests, Block2.Task2Tests,
+      Block3.Task1Tests, Block3.Task2Tests, Block3.Task3Tests, Block3.Task4Tests
+  hs-source-dirs:
+      test
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      base >=4.7 && <5, hw2-tarasska,
+      containers, mtl,
+      hspec, hedgehog, hspec-hedgehog,
+      tasty, tasty-hedgehog, tasty-hspec
+
+  default-language: Haskell2010
