@@ -19,8 +19,8 @@ main = do
   let task3 = [ cht1, cht2, cht3 ]
 
   curDir <- getCurrentDirectory
-  let path = curDir </> "banchRes"
-  createDirectoryIfMissing True (curDir </> "banchRes")
+  let path = curDir </> "benchRes"
+  createDirectoryIfMissing True path
   defaultMainWith defaultConfig{ reportFile = Just (path </> "task1.html") } task1
   defaultMainWith defaultConfig{ reportFile = Just (path </> "task2.html") } task2
   defaultMainWith defaultConfig{ reportFile = Just (path </> "task3.html") } task3
